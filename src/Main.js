@@ -23,25 +23,49 @@ class Main extends Component {
       counter: 0,
     });
   }
+  // removeOneHandler = () => {
+  //   this.setState({
+  //     counter: Math.max(this.state.counter - 1, 0),
+  //   });
+  // }
   removeOneHandler = () => {
-    this.setState({
-      counter: this.state.counter - 1,
-    });
+    if (this.state.counter >= 1) {
+      this.setState({
+        counter: this.state.counter - 1
+      })
+    }
   }
   removeFiveHandler = () => {
-    this.setState({
-      counter: this.state.counter - 5,
-    });
+    if (this.state.counter >= 5) {
+      this.setState({
+        counter: this.state.counter - 5
+      })
+    }
   }
+  // removeFiveHandler = () => {
+  //   this.setState({
+  //     counter: Math.max(this.state.counter - 5, 4),
+  //   });
+  // }
   render() {
+    let circleClass = '';
+    if (this.state.counter === 0) {
+      circleClass = 'circle';
+    } else if (this.state.counter % 2 === 0) {
+      circleClass = 'even';
+    } else {
+      circleClass = 'odd';
+    }
     return (
       <div className='main'>
-        <h1>{this.state.counter}</h1>
-        <Button click={this.addFiveHandler} text="Add 5" />
-        <Button click={this.addOneHandler} text="Add 1" />
-        <Button click={this.resetHandler} text="Reset" />
-        <Button click={this.removeOneHandler} text="Remove 1" />
-        <Button click={this.removeFiveHandler} text="Remove 5" />
+        <div className={circleClass}><h1>{this.state.counter}</h1></div>
+        <div className='button'>
+          <Button click={this.addFiveHandler} text="Add 5" />
+          <Button click={this.addOneHandler} text="Add 1" />
+          <Button click={this.resetHandler} text="Reset" />
+          <Button click={this.removeOneHandler} text="Remove 1" />
+          <Button click={this.removeFiveHandler} text="Remove 5" />
+        </div>
       </div>
     );
   }
