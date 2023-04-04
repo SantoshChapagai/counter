@@ -54,3 +54,15 @@ button {
   margin: 0.5rem;
   box-shadow: 0 0 10px azure;
 }
+
+.begin {
+  color: black;
+}
+
+.first {
+  color: blue;
+}
+
+.second {
+  color: red;
+}

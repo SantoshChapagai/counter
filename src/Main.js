@@ -49,16 +49,20 @@ class Main extends Component {
   // }
   render() {
     let circleClass = '';
+    let numberClass = '';
     if (this.state.counter === 0) {
       circleClass = 'circle';
+      numberClass = 'begin'
     } else if (this.state.counter % 2 === 0) {
       circleClass = 'even';
+      numberClass = 'first';
     } else {
       circleClass = 'odd';
+      numberClass = 'second';
     }
     return (
       <div className='main'>
-        <div className={circleClass}><h1>{this.state.counter}</h1></div>
+        <div className={circleClass}><h1 className={numberClass}>{this.state.counter}</h1></div>
         <div className='button'>
           <Button click={this.addFiveHandler} text="Add 5" />
           <Button click={this.addOneHandler} text="Add 1" />
