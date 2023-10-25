@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/counter
+    ports:
+      - 3015:3000
+    image: app:counter
+    container_name: counter_container
+    command: npm start
